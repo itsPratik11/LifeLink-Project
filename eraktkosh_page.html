@@ -1,0 +1,1432 @@
+
+    <!DOCTYPE html>
+<!-- <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd"> -->
+
+
+
+
+
+
+<head>
+
+<meta charset="UTF-8">
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<META Http-Equiv="Cache-Control" Content="no-cache" />
+<META Http-Equiv="Cache-Control" Content="no-store" />
+<META Http-Equiv="Pragma" Content="no-cache" />
+<META Http-Equiv="Expires" Content="0" />
+
+ <title> Camp Schedule</title>
+<!--  <script src="../hisglobal/bbpublic/assets/js/jquery-1.11.1.min.js"></script>
+  -->   
+
+
+<!-- <link rel="stylesheet" href="../hisglobal/bbpublic/bootstrap-3.3.6-dist/css/bootstrap.min.css" > -->
+<link rel="stylesheet" media="all" href="../hisglobal/bbpublic/assets/datatables/css/jquery.dataTables.min.css" />
+<link rel="stylesheet" media="all" href="../hisglobal/bbpublic/assets/datatables/css/fixedHeader.dataTables.min.css" />
+<link rel="stylesheet" media="all" href="../hisglobal/bbpublic/assets/datatables/css/responsive.dataTables.min.css" />
+<link rel="stylesheet"  href = "../hisglobal/bbpublic/assets/css/easy-autocomplete.min.css">
+<link rel = "stylesheet" href="../hisglobal/bbpublic/assets/custom/bbpublic.css">
+<link href="../hisglobal/bbpublic/assets/elements/css/jquery.floating-social-share.min.css" rel="stylesheet">
+<link href="../hisglobal/bbpublic/assets/elements/css/addToCal.css" rel="stylesheet">
+
+
+<script language="JavaScript" type="text/javascript" src="/HIS/hisglobal/js/jquery/updated_jquery/jquery_3.6/jquery.min.js"></script>
+<script type="text/javascript" src="/HIS/hisglobal/bootstrap5/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<link href="/HIS/hisglobal/bootstrap5/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="/HIS/hisglobal/masterutil/js/jquery/security.js"></script>      
+
+ <!-- Do not modify this include list -->
+<link href="../hisglobal/bbpublic/assets/elements/css/bootstrap.css" rel="stylesheet">
+
+<!-- <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous"> -->
+
+<!--       <link href="../hisglobal/bbpublic/assets/elements/css/revolution-slider.css" rel="stylesheet"> -->
+<link href="../hisglobal/bbpublic/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+<!--        <link href="../hisglobal/bbpublic/assets/elements/css/animate.min.css" rel="stylesheet"> -->
+<!--            <link href="../hisglobal/bbpublic/assets/elements/css/jquery.fancybox.min.css" rel="stylesheet"> -->
+<!--       <link href="../hisglobal/bbpublic/assets/elements/css/style.min.css" rel="stylesheet">     -->
+<!--       <link href="../hisglobal/bbpublic/assets/elements/css/style.css" rel="stylesheet"> -->
+<link href="../hisglobal/bbpublic/assets/elements/css/combined.css" rel="stylesheet">
+<link href="../bloodbank/transactions/assets/css/combined-cleaned.css" rel="stylesheet">
+ <link href="../hisglobal/bbpublic/assets/elements/css/hover.min.css" rel="stylesheet"> 
+      <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+      
+<!--       <link href="../hisglobal/bbpublic/assets/elements/css/responsive.css" rel="stylesheet"> -->
+     
+<!--       <link href="../hisglobal/bbpublic/assets/elements/css/homepage.css" rel="stylesheet" type="text/css" /> -->
+<link href="../hisglobal/bbpublic/assets/custom/bbpublic.css" rel="stylesheet" type="text/css" />
+<!--[if lt IE 9]><script src="../../hisglobal/bbpublic/assets/js/html5shiv.min.js"></script><![endif]-->
+      <!--[if lt IE 9]><script src="../../hisglobal/bbpublic/assets/js/respond.min.js"></script><![endif]-->
+      
+       <style>
+    
+   
+.darkbg1{
+background-color:  #c0c0c0;
+border-bottom-color: #be232b;
+
+color: #81181d;
+}
+.darkbg2{
+background-color:;
+border-top-color: #be232b;
+color: yellow;
+}
+ .darkbg3{
+background-color: #666666;
+border-top-color: #be232b;
+color: yellow;
+}
+.darkbg4 {
+background-color: ;
+border-top-color: #be232b;
+color: #ff0000;
+
+}
+</style>
+
+ 
+ <style>
+ #emptyBox{
+ display: block;
+ height: 100px;
+ }
+ #bBDate{
+display: block;
+width: 70%;
+height: 34px;
+padding: 6px 12px;
+font-size: 14px;
+line-height: 1.42857143;
+color: #555;
+background-color: #fff;
+background-image: none;
+border: 1px solid #ccc;
+border-radius: 4px;
+box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+  transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+  .panel > .panel-heading {
+    background-image: none;
+    background-color: #bf2229;
+    color: white;
+ 
+ 
+ }
+/*  #example-table td:nth-child(2)  ,
+ #example-table td:nth-child(3)  
+ {white-space: nowrap;}
+ .options{
+ z-index:10;
+ position:absolute;
+ } */
+ .options a{
+  color:black;
+  border-bottom: 1px solid black;
+ font-weight: initial;
+  font-size: 16px;
+}
+ .options a#myLink::before{
+  display:none;
+ 
+}
+
+.options{
+  background-color:white;
+}
+
+
+/* #bBDate{
+      width: 38%;
+      height: 32px;
+      margin: 0 auto;
+      border: auto;
+      border-radius: 8px;
+      padding: 2px;
+    } */
+
+
+}
+
+ </style>
+</head>
+
+
+<body onload="initCamp();">
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<!-- added by ameya$STH-->
+
+<meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<META Http-Equiv="Cache-Control" Content="no-cache" />
+<META Http-Equiv="Cache-Control" Content="no-store" />
+<META Http-Equiv="Pragma" Content="no-cache" />
+<META Http-Equiv="Expires" Content="0" />
+
+<link rel = "stylesheet" href="../hisglobal/bbpublic/assets/custom/bbpublic.css">
+<!-- <script language="JavaScript" type="text/javascript" src="/HIS/hisglobal/js/jquery/updated_jquery/jquery_3.6/jquery.min.js"></script>
+<script type="text/javascript" src="/HIS/hisglobal/bootstrap5/bootstrap-5.0.2-dist/js/bootstrap.min.js"></script>
+<link href="/HIS/hisglobal/bootstrap5/bootstrap-5.0.2-dist/css/bootstrap.min.css" rel="stylesheet">
+
+<script type="text/javascript" src="/HIS/hisglobal/masterutil/js/jquery/security.js"></script>      -->
+
+
+
+<!-- end by ameya -->
+
+
+
+
+
+
+
+
+
+</head>
+
+<!--  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  -->
+    <div class="preloader"></div>
+         <!-- Main Header -->
+         <div class="pre-header toggle1">
+            <div class="auto-container clearfix">
+<!--             <a id="text_resize_decrease" class="decreaseFont" id="decreaseFont" href="javascript:;"  title="Decrease font size" role="link">-A</a> -->
+<!-- <a id="text_resize_reset" class="changer" onclick="set_font_size('')" href="javascript:;" title="Reset font size" role="link">A</a> -->
+<!-- <a id="text_resize_increase" class="increaseFont"  href="javascript:;" title="Increase font size" role="link">+A</a> -->
+                    <!--       added by deepanshu -->
+      <div class="header-social d-flex align-items-center">
+      
+         <!--             added by deepanshu -->
+              <a class="beta-version" href="https://eraktkosh.mohfw.gov.in/eraktkoshPortal/#/" target= "_blank" title="Beta Version" style="">Beta Version</a>
+
+                  <div class="social-links">
+                  
+                 	 <!--                   code by deepak 20-may-2016 -->
+<!--                  	 <script src="../hisglobal/bbpublic/assets/js/jquery-1.11.1.min.js"></script> -->
+                 	
+						<a style="color: #be232b; background: lightgrey;"  class="hvr-bounce-to-top" href="#" title="darkbackground" id="dark">A </a>
+						<!-- <a style="color: #be232b; background: lightyellow;"  href="#" title="lightbackground" id="light">A</a> -->
+
+						<a style="color: white; background: #be232b;"   	class="hvr-bounce-to-top make_greater" 	   	 href="#" 	     >A+</a>
+						<a style="color: white; background: #be232b;"    class="hvr-bounce-to-top"   id="reset"			  				 href="#"	     >A</a>
+						<a style="color: white; background: #be232b;"       class="hvr-bounce-to-top make_smaller"         href="#"     >A-</a>
+					<!--                   code by deepak 20-may-2016  end-->
+                <!--  <a id="hindi "href="../bloodbank/transactions/hindihomepage.html" class="hvr-bounce-to-top " style='width:30px;' title="hindihomepage"  >à¤¹à¤¿à¤¨à¥à¤¦à¥&nbsp;</a> -->
+                  <a href="/BLDAHIMS/bloodbank/portalScreenReaders.cnt" class="hvr-bounce-to-top spstiny" alt="Screen Readers"><span class="fa fa-sps-f">Screen Readers</span></a>
+                   <!--   <a href="#" class="hvr-bounce-to-top"><span class="fa fa-facebook-f"></span></a>
+                     <a href="#" class="hvr-bounce-to-top"><span class="fa fa-twitter"></span></a>
+                     <a href="#" class="hvr-bounce-to-top"><span class="fa fa-google-plus"></span></a> -->
+                     <!-- <a href="/eRaktKosh/hissso/loginLogin" target="_blank" class="hvr-bounce-to-top"><span class="fa fa-user"></span></a>
+					<a href="/BLDAHIMS/bloodbank/portalLogin.cnt" class="hvr-bounce-to-top"><span class="fa fa-users" title="Portal Login"></span></a> -->
+                  </div>
+                  
+               </div>
+            </div>
+         </div>
+         <header class="main-header">
+            <div class="auto-container clearfix">
+               <!--Logo-->
+               <div class="logo"><a href="/eraktkoshPortal/#/"><img src="../hisglobal/bbpublic/images/Rakt5.png" alt="eRaktkosh" title="eRaktkosh"></a></div>
+               <!--Main Menu-->
+               <nav class="main-menu">
+                  <div class="navbar-header">
+                     <!-- Toggle Button -->      
+                     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     <span class="icon-bar"></span>
+                     </button>
+                  </div>
+                  <div class="navbar-collapse collapse clearfix">
+                     
+<ul style="height:10%" class="navigation">
+ <li class="dropdown current "><a href="#" title="About us">About Us</a>
+    <ul class="submenu">
+    <li><a title="Home" href="/eraktkoshPortal/#/">Home</a></li>
+      <li><a title="About eRaktkosh" href="/eraktkoshPortal/#/publicPages/AboutEraktkosh">About eRaktKosh</a></li>
+         <li><a title="All Notifications" href="/eraktkoshPortal/#/publicPages/Notification">Notifications</a></li>
+      	<li><a title="Eraktkosh FAQs" href="/eraktkoshPortal/#/publicPages/FAQs">Eraktkosh FAQs</a></li>
+      	<li><a href="/BLDAHIMS/bloodbank/transactions/bbpublicindexGallery.html" title="gallery">Gallery</a></li>
+       <li><a href="/BLDAHIMS/bloodbank/transactions/video.html" title="Video gallery">Video Gallery</a></li>
+         <li><a href="/BLDAHIMS/bloodbank/contact.cnt" title="Contact No">Contact Us</a></li>
+       <li><a href="/BLDAHIMS/bloodbank/downloadMobile.cnt" title="Mobile Apps">Mobile Apps</a></li>    
+    </ul> </li>
+  <li class="dropdown "><a href="#" title="Downloads">Looking for Blood</a>
+  <ul class="submenu">      
+  <li><a href="/eraktkoshPortal/#/publicPages/bloodAvailabilitySearch" title="Blood Availability">Blood Availability</a></li>
+     <li><a href="/eraktkoshPortal/#/publicPages/bloodBankDirectory" title="Nearby Blood Bank">Blood Bank Directory</a></li>
+   <li><a href="/BLDAHIMS/bloodbank/portalThalassemiaLogin.cnt" title="Thalassemia Blood Request">Thalassemia Request</a></li>
+
+      </ul>      
+  </li>
+
+  <li class="dropdown"><a title="Services" href="#">Want to Donate Blood</a>
+    <ul class="submenu">
+    <li><a href="/eraktkoshPortal/#/publicPages/campSchedule" title="Camp Schedule">Blood Donation Camps</a></li> 
+     <li><a href="/BLDAHIMS/bloodbank/onlineCampRequestNewBB.cnt" title="Register VBD Camp" href="/BLDAHIMS/bloodbank/donateblood.cnt">Register VBD Camp</a></li> 
+     <li><a href="/BLDAHIMS/bloodbank/onlineDonationRequest_epass.cnt" title="Online Donation Request">Appointment for Blood Bank</a></li>
+    <li><a href="/BLDAHIMS/bloodbank/portalDonorLogin.cnt" title="My Donations">Donor Login</a></li>  
+ <!--    <li style = "display: none"><a href="/BLDAHIMS/bloodbank/voluntryDonorsGroupRegistration.cnt" title="Voluntary Donor Group">Voluntary Donor Group</a></li>      -->
+    <li><a title="About Blood Donation" href="/BLDAHIMS/bloodbank/donateblood.cnt">About Blood Donation</a></li> 
+
+   
+      
+    </ul> </li>
+  
+
+    <li class="dropdown "><a style="" href="#"><b>Blood Bank Login</b></a>
+    <ul class="submenu">
+      <li><a href="/eRaktKosh/hissso/loginLogin" target="_blank" title="eRaktkosh Login">eRaktkosh Login</a></li>
+      <li><a href="/eraktkoshPortal/#/publicPages/addBloodBank" title="Add Your Bloodbank">Add Your Bloodbank</a></li>
+	</ul> </li>
+					
+
+  
+</ul>
+                  </div>
+               </nav>
+               <!--Main Menu End-->
+            </div>
+         </header>
+         </html>
+<head>
+  <title>Camp Schedule </title>
+  <meta name="description" content="Register as a voluntary donor in the blood donation camps currently happening in India.you can search for camps location wise and blood bank-wise.">
+  
+</head>
+<form name="NearbyBBFB" method="post" action="/BLDAHIMS/bloodbank/campSchedule.cnt" id="ff">
+<div class="container wrapper">
+<div class="page-header" >
+  <h3 class="text-danger">Camp Schedule</h3>
+</div>
+<div class="panel panel-danger" >
+  <div class="panel-heading">Camp Schedules</div>
+  <div class="panel-body">
+    
+
+<div class="row">
+<div>
+
+
+
+<!-- <h5 id='advanceSearch' align="left"><kbd>Show Advance Search&nbsp;<i id='advanceSearchArrow' class="fa fa-angle-double-down " aria-hidden="true"></i></kbd></h6>
+ -->
+
+</div>
+</div>
+<!-- <div class="alert alert-warning fade in" id="alertBox"> -->
+<!-- <button type="button" class="close" data-dismiss="alert">&times;</button> -->
+<!--      <span aria-hidden="true" id="alertText"><strong>Warning!</strong> There was a problem.</span> -->
+<!-- </div> -->
+
+
+<div id="advanceSearchMenu" style='display:none;' class="row">
+<!-- <div class="col-xs-1" align="left"> -->
+<!-- <h5>State: </h5> -->
+<!-- </div>	 -->
+
+
+<div class="col-md-2">
+<!--  <label for="salutation">State: </label> -->
+<select id="donorAddStateCode" class="form-control" onchange="loadDistrictList(this.value)" ><option value = -99>Select State</option></select>
+<div align="center">
+
+<!-- shalini 16-09-2022 -->
+										<div id="enterstate" style="display:none;">
+											<h4 class="text-danger">Please enter state</h4>
+										</div>
+									</div>
+									
+									<!-- shalini ends -->
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <select id="abc" class="form-control" onchange="loadDistrictList(this.value)" -->
+<!-- 							> -->
+<!-- 							<option value="-1">Select State</option> -->
+
+
+<!-- 								<options -->
+
+<!-- 									property="value" labelProperty="label" /> -->
+
+<!-- 						</select> -->
+</div>			 
+
+<div class="col-md-2 " >
+<!--  <label for="salutation">District: </label> -->
+<select id = "distList" class="form-control" onchange="setDistrictCode(this.value)">
+<option value="-1">All District</option>
+</select>
+</div>
+<div class="col-md-3">
+<!-- <input type="text" class="form-control" id="txtBbname" placeholder="Blood Bank or Hospital Name"> -->
+<input type="date" id="bBDate" name="" required >
+
+</div>
+<!-- <div class="col-md-3">
+<div class="input-group">
+<input type="text" class="form-control" id="autocomplete" onFocus="geolocate()" placeholder="Location">
+<span style="margin: 0px;padding: 0px;" title="Search Nearby" class="input-group-addon" id="basic-addon2"> <button class='btn btn-danger' onclick="getLocation()"><i class="fa  fa-dot-circle-o danger-text"></i></button></span>
+</div>
+</div> -->
+
+<div class="col-md-2" >
+<button type="button" class="btn btn-danger" onclick="getBloodBankList()">Search</button>
+</div>
+
+<!-- <a id='frame' href='https://calendar.google.com/calendar/embed?src=dhe4otegup82v2pvo09ulrhpsk%40group.calendar.google.com&ctz=Asia/Calcutta' class='fancybox.iframe'><i class='fa fa-calendar'></i></a> -->
+<br>
+<br>
+
+</div>
+
+</div>
+</div>
+
+
+ <div id="emptyBox" >
+
+
+
+</div>
+
+
+<div class="row" id="newbblist" hidden>
+<div id = "bblist" >
+<h5 align="right"><span id = "latlon" class="label label-info">Loading List</span></h6>
+<h5 align="right"><span id = "currentLocation" class="label label-info"></span></h6>
+<!-- <p id="latlon"></p> -->
+</div>
+
+
+
+<table id="example-table" class="table table-bordered table-hover ">
+  <thead class="bgtablered">
+ 
+  <tr>
+  <th>S.No.</th>
+    <th>Date</th> 
+    <th>Camp Name</th>
+    <th>Address</th>
+    <th>State</th>
+    <th>District</th>
+    <th>Contact</th>
+    <th>Conducted By</th>
+    <th>Organized by</th>
+   <th>Register</th>
+     <th>Time</th>   
+    </tr>
+   
+   
+  </thead>
+  <tbody>
+  </tbody>
+  <tfoot>
+   <tr>
+  <th></th>
+    <th></th>
+    <th></th>   
+    <th></th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th > </th>
+    <th > </th>
+    <th></th>
+    </tr>
+   </tfoot>
+    
+</table>
+</div>
+ <div class="push"></div>
+</div>
+</div>
+<!-- <div class="container"> -->
+<!-- <div class = "row"> -->
+<!-- <div> -->
+<!-- <input type="text" id="address"/> -->
+<!-- <button id="getCoordinates" onclick="geoCodeAddress()">GeoCode</button> -->
+<!-- <p id = "Location">Click GeoCode for Location</p> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- </div> -->
+<!-- <div id="map-canvas" style="height:100%; width:100%;position:absolute;"> -->
+<!--          <div id="map"></div> -->
+<!--     </div> -->
+     <style>
+#mylink:hover{
+	background-color: yellow;
+	color: black;
+}
+#mylink2:hover{
+background-color: yellow;
+}
+	
+</style>
+ <footer class="main-footer">
+            <!--Footer Upper-->
+            <!--Footer Lower-->
+            <div class="footer-lower">
+              <div class="auto-container sitemap">
+                <div class="auto-container sitemap">
+                  <div class="row clearfix">
+                    <div class='col-md-3 col-sm-12 col-xs-12  wow bounceInLeft'>
+                    <h3 class='text-left'>Looking for Blood</h3>
+                    <ul style='line-height:165%'>
+                    	<li><a href='/eraktkoshPortal/#/publicPages/bloodAvailabilitySearch'>Blood Availability</a></li>
+                    	<li><a href='/eraktkoshPortal/#/publicPages/bloodBankDirectory'>Blood Bank Directory</a></li>
+                    	<li><a href='/BLDAHIMS/bloodbank/portalThalassemiaLogin.cnt'>Thalassemia Request</a></li>                    					  
+					</ul>
+                    </div>
+                    <div class='col-md-3 col-sm-12 col-xs-12  wow bounceInLeft'>
+                    <h3 class='text-left'>Want to Donate Blood</h3>
+                    <ul style='line-height:165%'>
+                       <li><a href='/eraktkoshPortal/#/publicPages/campSchedule'>Blood Donation Camps</a></li>                    
+					  <li style = "display: none"><a href='/BLDAHIMS/bloodbank/onlineDonationRequest.cnt'>Appointment for Blood Bank</a></li>
+					  <li><a href='/BLDAHIMS/bloodbank/portalDonorLogin.cnt'>Donor Login</a></li>
+					<!--   <li style = "display: none"><a href="/BLDAHIMS/bloodbank/voluntryDonorsGroupRegistration.cnt" title="Voluntary Donor Group">Voluntary Donor Group</a></li> 	 -->
+					  <li><a href='/BLDAHIMS/bloodbank/donateblood.cnt'>About Blood Donation</a></li>		
+					    <li><a href="/BLDAHIMS/bloodbank/onlineCampRequestNewBB.cnt" title="Register VBD Camp" href="/BLDAHIMS/bloodbank/donateblood.cnt">Register VBD Camp</a></li> 
+   	  						  				
+					  
+					</ul>
+                    </div>
+                    <div class='col-md-3 col-sm-12 col-xs-12  wow bounceInLeft'>
+                    <h3 class='text-left'>Blood Bank Login</h3>
+                    <ul style='line-height:165%'>
+					   <li><a href='/eRaktKosh/hissso/loginLogin'>eRaktkosh Login</a></li>
+					  <li><a href='/eraktkoshPortal/#/publicPages/addBloodBank'>Add your Blood Bank</a></li>					 
+					</ul>
+                    </div>
+                    <!-- <div style='border-right: 1px solid #616161;border-left: 1px solid #616161;' class='col-md-4 col-sm-12 col-xs-12  wow bounceInLeft'>
+                     <h3 class='text-left'>Login</h3>
+                     <ul style='line-height:165%'>
+					  
+					  <li><a href='/BLDAHIMS/bloodbank/portalDonorLogin.cnt'>My Donations</a></li>
+					  <dd><a href='/eRaktKosh/hissso/loginLogin'>Portal Login</a></dd>
+					 
+					  
+					</ul>
+                    </div> -->
+                    <div class='col-md-3 col-sm-12 col-xs-12  wow bounceInLeft'>
+                   <h3 class='text-left'>About Us</h3>
+                   <ul style='line-height:165%'>                   
+					  
+					 <!--  <li><a href='/BLDAHIMS/bloodbank/aboutNHM.cnt'>About NHM Initiatives</a></li> -->
+					   <li><a href='/eraktkoshPortal/#/publicPages/AboutEraktkosh'>About eRaktkosh</a></li> 
+					    <li><a title="All Notifications" href="/eraktkoshPortal/#/publicPages/Notification">Notifications</a></li>
+					    <li><a title="Eraktkosh FAQs" href="/eraktkoshPortal/#/publicPages/FAQs">Eraktkosh FAQs</a></li>
+					  <li><a href='/BLDAHIMS/bloodbank/transactions/bbpublicindexGallery.html'>Gallery</a></li>
+					  <li><a href="/BLDAHIMS/bloodbank/transactions/video.html" title="Video gallery">Video Gallery</a></li>
+					   <li><a href="/BLDAHIMS/bloodbank/contact.cnt" title="Contact No">Contact Us</a></li>
+       				   <li><a href="/BLDAHIMS/bloodbank/downloadMobile.cnt" title="Mobile Apps">Mobile Apps</a></li>    
+					   
+					</ul>          
+                      </div>
+                     
+               </div>
+            </div>
+            
+                  
+               <div class="auto-container">
+                  <div class="row clearfix">
+                     <!--Footer Logo-->
+                     
+				 		<div class="col-md-6 col-sm-12 col-xs-12 footer-logo text-center "><span id='copyYear'></span>  <a href="http://mohfw.nic.in/" target='_blank'>by Ministry of Health and Family Welfare</a> </div>
+                      <div class="col-md-6 col-sm-12 col-xs-12 footer-logo text-center ">  &reg;&nbsp;Designed and Devloped by<a href="http://cdac.in/" target='_blank'> Centre for Development of Advanced Computing</a> </div>                  
+                      	<div class="col-md-12 col-sm-12 col-xs-12 footer-logo text-center ">
+                      <span><a id="mylink" href="/BLDAHIMS/bloodbank/termsAndConditions.cnt">Terms & Conditions</a></span> | <span><a id="mylink" href="/BLDAHIMS/bloodbank/privacyPolicy.cnt">Privacy Policy</a></span> | <span><a id="mylink" href="/BLDAHIMS/bloodbank/accessibilityStmt.cnt">Accessibility Statement</a></span> | <span id='updatetime'></span> | <span><a id="mylink" href="/BLDAHIMS/bloodbank/eraktkoshSiteMap.cnt">Site Map</a></span>
+                      </div>
+                      </div>
+                      
+                      <script>
+                      document.getElementById('copyYear').innerHTML="&copy; 2016 -" + new Date().getFullYear();
+                      var d = (new Date()).toString().split(' ').splice(1,3).join(' ');
+                      document.getElementById('updatetime').innerHTML="Last Updated : " + d;
+                      </script>
+                     
+               </div>
+            </div>
+            </div>
+            
+         </footer>		
+<!-- <div id='socialShare'>
+</div> -->
+<input type="hidden" name="stateList" value="1">
+<input type="hidden" name="hmode" value="">
+<input type="hidden" id = "dCode" name="districtCode" value = "-1"/>
+<input type="hidden" id = "sCode" name="stateCode" value = "-1"/>
+<input type="hidden" id="lat" name="latitude" value = "-1"/>
+<input type="hidden" id="lon" name="longitude" value = "-1"/>
+<input type="hidden" id = "searchMode" name="searchMode" value = "2"/>
+<input type="hidden" id="searchString" name="searchString" value = "-1"/>
+<script src="../../hisglobal/bbpublic/assets/elements/js/jquery.fancybox.pack.js" async></script> 
+<!-- Do not modify this include list -->
+<!--  <script src="../hisglobal/bbpublic/assets/elements/js/bootstrap.min.js"></script> -->
+<!-- <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->
+
+<!--[if lt IE 9]><script src="../../hisglobal/bbpublic/assets/js/html5shiv.min.js"></script><![endif]-->
+      <!--[if lt IE 9]><script src="../../hisglobal/bbpublic/assets/js/respond.min.js"></script><![endif]-->
+      <script src="../hisglobal/bbpublic/assets/elements/js/wow.js" ></script>
+      <script src="../hisglobal/bbpublic/assets/elements/js/script.js"></script>
+<!--       <script type="text/javascript" src="../hisglobal/bbpublic/assets/elements/js/captcha.js"></script> -->
+       <script src="../hisglobal/bbpublic/assets/js/modernizr-custom.js"></script>
+       
+       <script type="text/javascript">
+     //code by deepak
+     //**************************************************************************//
+
+     	
+     var transformZoom = 1;
+       var cssZoom = 100;
+
+       
+       
+       $('.make_greater').click(function() {
+       //alert('hello');
+         var step;
+
+         if (Modernizr.testProp('zoom') === true) {
+     	
+           step = 5;
+           cssZoom += step;
+           $('body').css('zoom', ' ' + cssZoom + '%');
+         } else {
+           console.log('no css zoom');
+           step = 0.05;
+           transformZoom += step;
+     	  
+           $('html').css('MozTransform', 'scale(' + transformZoom + ',' + transformZoom + ')');
+           $('html').css('transform-origin', 'top center');
+         }
+       });
+       
+       
+       
+
+       $('.make_smaller').click(function() {
+         var step;
+         //only firefox create problem
+         if (Modernizr.testProp('zoom') === true) {
+           console.log('CSS zoom supported');
+
+           step = 5;
+           cssZoom -= step;
+           $('body').css('zoom', ' ' + cssZoom + '%');
+         } else {
+           console.log('no css zoom');
+           step = 0.05;
+           transformZoom -= step;
+           $('html').css('MozTransform', 'scale(' + transformZoom + ',' + transformZoom + ')');
+     	console.log('no css zoom 1');
+           $('html').css('transform-origin', 'top center');
+     	console.log('no css zoom 2');
+         }
+       });
+       
+       
+       $('#reset').click(function(){  
+           //$("*").css("font-size", 14);   
+     	  // document.body.style.zoom="100%"
+     	  cssZoom = 100;
+     	 if (Modernizr.testProp('zoom') === true) {
+     	   $('body').css('zoom', ' ' + 100 + '%');
+     	   }
+     	  else 
+     	  {
+     	      console.log('no css zoom');
+     	     transformZoom = 1;
+     	     $('html').css('MozTransform', 'scale(' + 1 + ',' + 1 + ')');
+     	      $('html').css('transform-origin', 'top center');
+     	    }
+     	 console.log('cssZoom');
+       });
+<!--
+//************************************************************************//
+
+//-->
+$("#dark").click(function(){ 
+	 
+	   $("section").toggleClass("darkbg1");
+	   $("header").toggleClass("darkbg1");
+	   $("ul").toggleClass("darkbg1");
+	   $("li").toggleClass("darkbg1");
+	   $("a").toggleClass("darkbg2");
+    	$("hr").toggleClass("darkbg2");
+    	$("td").toggleClass("darkbg3");
+    	
+	$(".toggle1").toggleClass("darkbg1");
+	$(".toggle2").toggleClass("darkbg2");
+	$("body").toggleClass("darkbg1");
+//	$(".toggle3").toggleClass("darkbg3");
+
+	
+	
+});
+
+
+
+$(function(){
+	$('a[href^="http"]').each(function() {
+		$(this).on('click',function(){ return external_link()}); 
+	});
+	
+	
+});
+
+function external_link() {
+	  return 1 == confirm('Youre about to leave www.eRaktKosh.in.\nThis is a link to external website/content. This site does not belong to eRaktkosh and hence eRaktkosh shall not be liable in any case.\nPlease Continue at your own risk.') ? !0 : !1
+	}
+$.urlParam = function(name){
+	    var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+	    if (results==null){
+	       return null;
+	    }
+	    else{
+	       return results[1] || 0;
+	    }
+	}
+</script>
+<script>
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-73827792-1', 'auto');
+ga('send', 'pageview');
+</script>	
+ 
+<script src="../hisglobal/bbpublic/assets/js/jquery.floating-social-share.min1.js"></script>
+<script src="../hisglobal/bbpublic/assets/datatables/js/jquery.dataTables.min.js"></script>
+<script src="../hisglobal/bbpublic/assets/js/fnReloadAjax.js"></script>
+<script src="../hisglobal/bbpublic/assets/js/bootstrap.min.js"></script>
+<!-- <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=places"
+        async defer></script> -->
+<script src="../hisglobal/bbpublic/assets/datatables/js/dataTables.fixedHeader.min.js"></script>
+<script src="../hisglobal/bbpublic/assets/datatables/js/dataTables.responsive.min.js"></script>
+<script src="../hisglobal/bbpublic/assets/js/jquery.easy-autocomplete.min.js"></script>    
+<script src="../hisglobal/bbpublic/assets/elements/js/jquery.fancybox.pack.js" async></script>
+<script src="../hisglobal/bbpublic/assets/elements/js/ouical.js" async></script>
+
+
+</form>
+</body>
+
+<script>
+function handleClick(obj){
+	
+	var name=obj.name;
+	console.log(name);
+	console.log(obj.getAttribute('ev'));
+	checkedProperty=!(obj.getAttribute('ev')=='true');
+	var elem=document.getElementsByName(name);
+	for(i=0;i<elem.length;i++)
+	
+		{
+			elem[i].checked=false;
+		}
+	obj.checked=checkedProperty;
+	obj.setAttribute("ev",checkedProperty);
+	console.log("checked property "+checkedProperty);
+	console.log("obj checked "+obj.checked);
+}
+function AddCalander(obj)
+{
+obj.removeAttribute("onmouseover");
+var Title=$(obj).closest('tr').children('td')[3].textContent;
+var date=$(obj).closest('tr').children('td')[1].textContent;
+var time=$(obj).closest('tr').children('td')[2].textContent;
+var address=$(obj).closest('tr').children('td')[4].textContent;
+var conductedBy=$(obj).closest('tr').children('td')[8].textContent;
+var timeSplit=time.split('-');
+var objDateArray=date.split("-");
+var dateForData=objDateArray[1]+" "+objDateArray[0]+", "+objDateArray[2]+" "+timeSplit[0]+":00";
+var dateForDataEnd=objDateArray[1]+" "+objDateArray[0]+", "+objDateArray[2]+" "+timeSplit[1]+":00";
+//console.log(dateForData);
+//console.log(dateForDataEnd);
+var description="A Camp Named '"+Title+"' is conducted by "+conductedBy+" at "+address+".Donate Blood and become a savior of life.Powered By:eRaktkosh.in";
+      var myCalendar = createCalendar({
+        options: {
+          class: 'options',
+          id: obj.id                              
+        },
+        data: {
+          title: Title,     // Event title
+          start: new Date(dateForData),   // Event start date
+          duration: 120,                            // Event duration (IN MINUTES)
+          end: new Date(dateForDataEnd),     // You can also choose to set an end time.
+          address: address,
+          description: description
+        }
+      })
+     
+
+    
+      obj.appendChild(myCalendar);
+     }
+function appendSelect(obj)
+{
+	
+	obj
+	.api()
+	.columns()
+	.every(
+			function() {
+				var column = this;
+				var colIdx = column
+						.index();
+
+				if (colIdx==0||colIdx==2||colIdx==7||colIdx==9||colIdx==4||colIdx==3
+						)
+					return;
+				var select = $(
+						'<select style="width:100%"><option value="">All</option></select>')
+						.appendTo(
+								$(
+										column
+												.footer())
+										.empty())
+						.on(
+								'change',
+								function() {
+									if(colIdx!=1){
+										
+									var val = $.fn.dataTable.util
+											.escapeRegex($(
+													this)
+													.val());
+									}
+									else
+										{
+										var val=$(this).val().substring(0,11);
+										/*console.log("without regex"+val);
+										var val =$.fn.dataTable.util
+										.escapeRegex(val); */
+								
+										}
+									console.log("value is "+val);
+									column
+											.search(
+													val ,
+													false,
+													true)
+											.draw();
+								});
+
+				column
+						.data()
+						.unique()
+						.sort()
+						.each(
+								function(
+										d,
+										j) {
+									
+										
+										select
+										.append('<option value="'+d+'">'
+												+ d
+												+ '</option>')
+										
+									
+								});
+			});
+	/* $("#socialShare").load("transactions/SocialShare.html"); */
+	$("#frame").fancybox({
+	    'width'         : '75%',
+	    'height'        : '75%',
+	    'autoScale'     : false,
+	    'transitionIn'  : 'none',
+	    'transitionOut' : 'none',
+	    'type'          : 'iframe'
+	});
+	
+}
+$(document)
+.ready(
+		
+		function() {
+		//	const str = '2022-09-17';
+
+			const date = new Date();
+			 document.getElementById("bBDate").valueAsDate= date;
+			  document.getElementById("bBDate").min = new Date().getFullYear() + "-" +  parseInt(new Date().getMonth() + 1 ) + "-" + new Date().getDate()
+			// 	$('#example-table tfoot th').each( function () {
+			//         var title = $(this).text();
+			//         $(this).html( '<input type="text" placeholder="Search '+title+'" />' );
+			//     } );
+	
+		   $("#advanceSearchMenu").slideToggle();
+		        $("#advanceSearchArrow").toggleClass('fa-angle-double-down  fa-angle-double-up ');
+		        $(".easy-autocomplete").removeAttr('style');
+	
+		/* $("#advanceSearch").css({"cursor": "pointer","margin-bottom":"10px"})
+		    .click(function() {
+		        $("#advanceSearchMenu").slideToggle();
+		        $("#advanceSearchArrow").toggleClass('fa-angle-double-down  fa-angle-double-up ');
+		        $(".easy-autocomplete").removeAttr('style');
+		        
+		    }); */
+		 
+		  var stateCode = $('#sCode').val();
+			var districtCode = $('#dCode').val();
+
+			   if(stateCode!='-1')
+			 {
+			var table = $('#example-table')
+					.DataTable(
+							{
+								initComplete : function() {
+									appendSelect(this);
+									},
+									"ajax":"/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETNEARBYCAMPS&stateCode=-1&districtCode=-1",
+								"aLengthMenu" : [
+										[ 4, 10, 20, 50, 75, -1 ],
+										[ 4, 10, 20, 50, 75, "All" ] ],
+								"pageLength" : 4,
+								"responsive":true,
+								"columnDefs": [
+								                 { "targets": [1,9], "orderable": false }
+								               ],
+								
+									"order": [[ 0, 'asc' ]]
+							}
+							
+
+					);
+
+			}
+
+		});
+var SearchEnum = Object.freeze({CURRENTLOCATION: 1, DROPDOWN: 2, LOCATIONBOX: 3, BBNAME: 4});
+var x = document.getElementById("latlon");
+
+// var x1 = document.getElementById("alertText");
+$(document).ready(function() {
+	$(document).on('click', function(){
+		$("[name='add-to-calendar-checkbox']").each(function(){
+			$(this).prop('checked', false);
+		}
+				)
+		
+	});
+	
+	 $(".close").click(function(){
+	        $('#alertBox').alert('close');
+	    });
+	
+	  $("#searchButton").click(function() {
+		    $('html, body').animate({
+		        scrollTop: $("#bblist").offset().top
+		    }, 2000);
+		}); 
+	 
+	 
+	 var options = {
+				url: "/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETAUTOCOMPLETEDATA",
+
+				getValue: "name",
+				requestDelay: 500,
+				list: {
+					match: {
+						enabled: true
+					},
+					onChooseEvent: function() {
+			var value = $("#txtBbname").getSelectedItemData().code;
+			//alert(value);
+			$("#searchString").val(value);
+			setSearchMode(SearchEnum.BBNAME);
+		},
+		showAnimation: {
+			type: "fade", //normal|slide|fade
+			time: 400,
+			callback: function() {}
+		},
+
+		hideAnimation: {
+			type: "slide", //normal|slide|fade
+			time: 400,
+			callback: function() {}
+		}
+		
+	 
+				}
+			};
+
+			$("#txtBbname").easyAutocomplete(options);
+
+			getState(1);
+	});
+	
+function getLatLonCampList(lat, lon)
+{		
+	var table;
+	if ( $.fn.dataTable.isDataTable( '#example-table' ) ) {
+    table = $('#example-table').dataTable();
+    var newURL = "/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETNEARBYCAMPS&latitude="+lat+"&longitude="+lon;
+  //manisha STH
+    ajaxParamBase64(newURL);
+    newURL = newURL + "&abfhttf="+document.getElementsByName(token_key)[0].value;
+
+    
+    table.fnReloadAjax(newURL);
+	}
+	else {
+		 var newURL = "/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETNEARBYCAMPS&latitude="+lat+"&longitude="+lon;
+   	  //manisha STH
+ 	    ajaxParamBase64(newURL);
+  	    newURL = newURL + "&abfhttf="+document.getElementsByName(token_key)[0].value;
+		
+    $('#example-table').DataTable( {
+        "ajax": newURL,
+        "deferRender": true,
+        "fixedHeader": true,
+        "responsive":true,
+        "aoColumns": [
+                      null,
+                      { "sType": "date-uk" },
+                      null,
+                      null,
+                      null,
+                      null,
+                      null,
+                      null
+                  ]
+    } );
+    
+}
+}
+jQuery.extend( jQuery.fn.dataTableExt.oSort, {
+	"date-uk-pre": function ( a ) {
+	    var ukDatea = a.split('-');
+	    return (ukDatea[2] + ukDatea[1] + ukDatea[0]) * 1;
+	},
+
+	"date-uk-asc": function ( a, b ) {
+	    return ((a < b) ? -1 : ((a > b) ? 1 : 0));
+	},
+
+	"date-uk-desc": function ( a, b ) {
+	    return ((a < b) ? 1 : ((a > b) ? -1 : 0));
+	}
+	} );
+	
+function initCamp() {
+	//var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('?');
+	var hashes = window.location.href.split('?');
+	//  alert(hashes.length);
+	//  alert(hashes);
+	  if(hashes.length == 1) {
+    
+		}
+else 
+	{
+	//alert("here");
+	getBloodBankListByURL(hashes.pop());
+	 x.innerHTML = "Results as per your selection";
+     $('#lat').val("-1");
+     $('#lon').val("-1");
+	}
+    initAutocomplete();
+	//google.maps.event.addDomListener(window, 'load', initialize);	
+
+}
+function getLocation(){
+	if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition, showError);
+    } else { 
+        x.innerHTML = "Geolocation is not supported by this browser.";
+        $('#lat').val("-1");
+        $('#lon').val("-1");
+    }
+}
+function showPosition(position) {
+//     x.innerHTML = "Latitude: " + position.coords.latitude + 
+//     "<br>Longitude: " + position.coords.longitude;	
+   var lat = position.coords.latitude;
+        var lon = position.coords.longitude;
+    $('#lat').val(lat);
+    $('#lon').val(lon);
+    setSearchMode(SearchEnum.CURRENTLOCATION);
+  
+        
+	getLatLonCampList(lat, lon);	
+	//geocodeLatLng(lat,lon);
+	x.innerHTML = "Showing Blood Banks within a radius of 30KM from your current location";
+//         var img_url = "http://maps.googleapis.com/maps/api/staticmap?center="
+//         +latlon+"&zoom=14&size=400x300&sensor=false";
+//         document.getElementById("mapholder").innerHTML = "<img src='"+img_url+"'>";
+    
+    
+}
+
+function showError(error) {
+	var txt;
+    switch(error.code) {
+        case error.PERMISSION_DENIED:
+            x.innerHTML = "User denied the request for Geolocation."
+            txt = "User denied the request for Geolocation.";
+            break;
+        case error.POSITION_UNAVAILABLE:
+            x.innerHTML = "Location information is unavailable."
+            txt = "Location information is unavailable.";
+            break;
+        case error.TIMEOUT:
+            x.innerHTML = "The request to get user location timed out."
+            txt = "The request to get user location timed out.";
+            break;
+        case error.UNKNOWN_ERROR:
+            x.innerHTML = "An unknown error occurred."
+            txt = "An unknown error occurred.";
+            break;
+    }
+//     x1.innerHTML = txt;
+    $('#lat').val("-1");
+    $('#lon').val("-1");
+}
+
+function loadDistrictList(stateCode)
+{
+	
+    $('#dCode').val("-1");
+	$('#sCode').val(stateCode);
+	setSearchMode(SearchEnum.DROPDOWN);
+	//alert(newUrl);
+	//manisha STH
+  	var newUrl="/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETDISTRICTLIST";
+  	 ajaxParamBase64(newUrl);
+  	newUrl = newUrl + "&abfhttf="+document.getElementsByName(token_key)[0].value;
+	
+	$.getJSON(newUrl,{selectedStateCode:stateCode}, function(data) {
+	    $("#distList option").not(':first').remove(); // Remove all <option> child tags.
+	   // console.log(data);
+	    $.each(data.records, function(index, item) { // Iterates through a collection
+	        $("#distList").append( // Append an object to the inside of the select box
+	            $("<option></option>") 
+	                .text(item.id)
+	                .val(item.value)
+	        );
+	    });
+	});	
+}
+
+function setDistrictCode(districtCode)
+{
+	$('#dCode').val(districtCode);	
+	//alert($('#dCode').val());
+}
+function getBloodBankListByURL(url)
+{
+	//console.log("dfdfdf");
+	//alert(url);
+	 
+    
+	var newUrl = '/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=' + url;// url.split('&').pop();
+	//alert(newUrl);
+	//manisha STH
+  	 ajaxParamBase64(newUrl);
+  	newUrl = newUrl + "&abfhttf="+document.getElementsByName(token_key)[0].value;
+	
+	var table;
+	if ( $.fn.dataTable.isDataTable( '#example-table' ) ) {
+    table = $('#example-table').dataTable();   
+    table.fnReloadAjax(newUrl);
+	}	
+	else {
+// 	    table = $('#example-table').DataTable( {
+// 	        paging: false
+// 	    } );      
+		 $('#example-table').DataTable( {
+		        "ajax": newUrl,
+		        "deferRender": true,
+		        "fixedHeader": true,
+		        "responsive":true
+		    } );
+	}
+	}
+function getBloodBankList()
+{  //shalini
+	/* var c= document.getElementById('emptyBox');
+	 c.addAttribute("hidden"); */
+	 
+	 
+	 //Shalini 16-09-2022
+	 	 $("#enterstate").hide();
+	if (document.getElementById('donorAddStateCode').value=="-99")
+		{
+		 $("#enterstate").show();
+			document.getElementsByName("state")[0].focus();
+			return false;
+		}
+	 
+	 
+	 //Shalini ends
+  document.getElementById("emptyBox").style.display = "none";  
+  var p = document.getElementById('newbblist');
+  p.removeAttribute("hidden");
+  var campDate=document.getElementById("bBDate").value;
+ // alert(campDate);
+  if(campDate===undefined||campDate===null||campDate===''||campDate==="null")
+  { campDate=new Date();
+  document.getElementById("bBDate").valueAsDate = new Date();
+   }
+  
+  //alert(campDate)
+	var stateCode = $('#sCode').val();
+	var districtCode = $('#dCode').val();
+   
+	var mode = $('#searchMode').val();	
+
+	if( mode == SearchEnum.DROPDOWN)
+	{
+		var table;
+		if ( $.fn.dataTable.isDataTable( '#example-table' ) ) {
+	    table = $('#example-table').dataTable();
+	    var newUrl = '/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETNEARBYCAMPS&stateCode='+stateCode+'&districtCode='+districtCode+'&campDate='+campDate;
+		//manisha STH
+	    ajaxParamBase64(newUrl);
+	    newUrl = newUrl + "&abfhttf="+document.getElementsByName(token_key)[0].value;
+
+	    
+	    table.fnReloadAjax(newUrl);
+	    table = $('#example-table').dataTable();
+	    //console.log(table);
+	  //  appendSelect(table);
+		}	
+		else {
+	// 	    table = $('#example-table').DataTable( {
+	// 	        paging: false
+	// 	    } );      
+	   	
+	   	//manisha STH
+	     var newUrl = "/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETNEARBYCAMPS&stateCode="+stateCode+"&districtCode="+districtCode+"&campDate="+campDate;
+	
+	     ajaxParamBase64(newUrl);
+	     newUrl = newUrl + "&abfhttf="+document.getElementsByName(token_key)[0].value;
+	
+			 $('#example-table').DataTable( {
+			        "ajax": newUrl,
+			        "deferRender": true,
+			        "fixedHeader": true,
+			        "responsive":true
+			    } );
+		}
+	x.innerHTML = "Showing Blood Banks as per the selection from the list";
+}
+else if(mode == SearchEnum.CURRENTLOCATION || mode == SearchEnum.LOCATIONBOX)
+	{
+		var lat = $('#lat').val();
+    	var lon = $('#lon').val();
+
+		getLatLonCampList(lat, lon);
+		x.innerHTML = "Showing Blood Banks within a radius of 30KM from the selected location";
+	}
+else if(mode == SearchEnum.BBNAME)
+{
+	var searchString = $('#searchString').val();
+	var table;
+	if ( $.fn.dataTable.isDataTable( '#example-table' ) ) {
+		table = $('#example-table').dataTable();
+    var newUrl = '/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETNEARBYCAMPS&hospitalCode=' + searchString;
+
+	//manisha STH
+    ajaxParamBase64(newUrl);
+    newUrl = newUrl + "&abfhttf="+document.getElementsByName(token_key)[0].value;
+
+    
+    table.fnReloadAjax(newUrl);
+    $("#my-datatable").dataTable()
+	}	
+	
+	else {
+// 	    table = $('#example-table').DataTable( {
+// 	        paging: false
+// 	    } );   
+
+	//manisha STH
+	var newUrl= "/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETNEARBYCAMPS&hospitalCode=" +searchString;
+	    ajaxParamBase64(newUrl);
+	    newUrl = newUrl + "&abfhttf="+document.getElementsByName(token_key)[0].value;
+
+		 $('#example-table').DataTable( {
+		        "ajax": newUrl,
+		        "deferRender": true,
+		        "fixedHeader": true,
+		        "responsive": true
+		    } );
+	}
+
+}
+
+	
+}
+
+ 
+	function geocodeLatLng(lat,lon) {
+		 var geocoder = new google.maps.Geocoder;
+	  var latlng = {lat: parseFloat(lat), lng: parseFloat(lon)};
+	  geocoder.geocode({'location': latlng}, function(results, status) {
+	    if (status === google.maps.GeocoderStatus.OK) {
+	      if (results[1]) {
+	        //console.log(results[1]);
+	        x.innerHTML= "Current Location: " + results[1].formatted_address;
+	      } else {
+	        window.alert('No results found');
+	      }
+	    } else {
+	      window.alert('Geocoder failed due to: ' + status);
+	    }
+	  });
+}
+	
+	function initMap() {
+		
+		}
+	
+	var placeSearch, autocomplete;
+
+
+function geoCodeAddress()
+{
+	var geocoder = new google.maps.Geocoder();
+	var address = document.getElementById('address').value;
+	var loc = document.getElementById('Location');
+	
+	var map1 = new google.maps.Map(document.getElementById('map'), {
+	    zoom: 8,
+	    center: {lat: -34.397, lng: 150.644}
+	  });
+	
+	
+	geocoder.geocode({'address': address}, function(results, status) {
+	    if (status === google.maps.GeocoderStatus.OK) {
+	      loc.innerHTML = results[0].geometry.location;
+	      map1.setCenter(results[0].geometry.location);
+	      map1.setZoom(15);
+	      var marker = new google.maps.Marker({
+	        map: map1,
+	        position: results[0].geometry.location
+	      });
+	    } else {
+	      alert('Geocode was not successful for the following reason: ' + status);
+	    }
+	  });
+}
+
+var placeSearch, autocomplete;
+var componentForm = {
+  street_number: 'short_name',
+  route: 'long_name',
+  locality: 'long_name',
+  administrative_area_level_1: 'short_name',
+  country: 'long_name',
+  postal_code: 'short_name'
+};
+
+function initAutocomplete() {
+  // Create the autocomplete object, restricting the search to geographical
+  // location types.
+  autocomplete = new google.maps.places.Autocomplete(
+      /** @type {!HTMLInputElement} */(document.getElementById('autocomplete')),
+      {types: ['geocode']});
+
+  // When the user selects an address from the dropdown, populate the address
+  // fields in the form.
+  autocomplete.addListener('place_changed', fillInAddress);
+}
+
+// [START region_fillform]
+function fillInAddress() {
+  // Get the place details from the autocomplete object.
+  var place = autocomplete.getPlace();
+
+
+ // alert(place.geometry.location.lng());
+  $('#lat').val(place.geometry.location.lat());
+  $('#lon').val(place.geometry.location.lng());
+ 
+  setSearchMode(SearchEnum.LOCATIONBOX);
+ 
+}
+
+function setSearchMode(mode)
+{
+	 $('#searchMode').val(mode);
+	// alert(mode);
+	if(mode == SearchEnum.LOCATIONBOX || mode == SearchEnum.CURRENTLOCATION) {
+		//Search by location box
+		//reset search by state
+	$('#donorAddStateCode').val("-1");
+	  $('#dCode').val("-1");
+	  $('#sCode').val("-1");
+	  $('#searchString').val("");
+	//  $('#autocomplete').val("");
+	}
+	else if(mode == SearchEnum.DROPDOWN)
+	{
+		
+		$('#lat').val("-1");
+		$('#lon').val("-1");
+		$('#autocomplete').val("");
+		$('#searchString').val("");
+	}
+	else if(mode == SearchEnum.BBNAME)
+	{
+		$('#dCode').val("-1");
+		  $('#sCode').val("-1");
+		  $('#lat').val("-1");
+			$('#lon').val("-1");
+			$('#autocomplete').val("");
+			
+	}
+	
+}
+
+function getState(stateListType)
+{
+	$.getJSON("/BLDAHIMS/bloodbank/nearbyBB.cnt?hmode=GETSTATELIST&statetype="+ stateListType,		
+			 function(data) {
+		var comboHtml = "";
+		$.each(data, function(index, element) {
+			$('#donorAddStateCode').append(new Option(element.label, element.value));
+		});
+	});
+}
+
+function geolocate() {
+//   if (navigator.geolocation) {
+//     navigator.geolocation.getCurrentPosition(function(position) {
+//       var geolocation = {
+//         lat: position.coords.latitude,
+//         lng: position.coords.longitude
+//       };
+//       var circle = new google.maps.Circle({
+//         center: geolocation,
+//         radius: position.coords.accuracy
+//       });
+//       autocomplete.setBounds(circle.getBounds());
+//     });
+//   }
+}
+
+</script>
