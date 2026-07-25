@@ -3186,7 +3186,24 @@ export const FALLBACK_CAMPS_DATA = [
     "date": "2026-04-21",
     "time": "09:00 AM - 04:00 PM",
     "distance": "8.5 km",
-    "slotsTotal": 68,
     "slotsBooked": 28
   }
 ];
+
+export function getDynamicFallbackCamps() {
+    const today = new Date();
+    return FALLBACK_CAMPS_DATA.map((camp, index) => {
+        // Distribute camp dates across today and the next 30 days deterministically
+        const offsetDays = (index % 30) + (Math.floor(index / 10) % 5);
+        const campDate = new Date(today);
+        campDate.setDate(today.getDate() + offsetDays);
+        
+        // Format as YYYY-MM-DD
+        const formattedDate = campDate.toISOString().split('T')[0];
+        
+        return {
+            ...camp,
+            date: formattedDate
+        };
+    });
+}

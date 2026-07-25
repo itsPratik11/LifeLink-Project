@@ -3,6 +3,7 @@ import EmergencyBanner from "@/components/sections/emergency-banner";
 import HeroSection from "@/components/sections/hero";
 import LiveImpact from "@/components/sections/live-impact";
 import DonorJourney from "@/components/sections/donor-journey";
+import CaptureMomentSection from "@/components/sections/capture-moment";
 import FinalCTA from "@/components/sections/final-cta";
 import SiteFooter from "@/components/sections/site-footer";
 import CookieConsent from "@/components/sections/cookie-consent";
@@ -16,6 +17,7 @@ export default function Home() {
         <HeroSection />
         <LiveImpact />
         <DonorJourney />
+        <CaptureMomentSection />
         <FinalCTA />
         <SiteFooter />
       </main>
@@ -23,3 +25,4 @@ export default function Home() {
     </div>
   );
 }
+

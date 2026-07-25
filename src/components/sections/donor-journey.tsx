@@ -23,7 +23,7 @@ const journeySteps = [
     id: 3,
     headline: "Q: Where does my blood go?",
     text: "It goes on a journey! We separate it into red cells and plasma. Use our Live Tracker to see exactly when your blood reaches a specific hospital.",
-    image: "https://images.unsplash.com/photo-1579154235828-4519f39f9464?auto=format&fit=crop&q=80&w=800",
+    image: "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=800",
     alt: "Stylized map or route graphic",
   },
   {

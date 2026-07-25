@@ -1,3 +1,6 @@
+"use client";
+
+import React, { useState } from "react";
 import {
   CalendarPlus,
   IdCard,
@@ -11,18 +14,19 @@ import {
   Settings,
   Bell,
   Search,
-  User
+  User,
+  Heart
 } from "lucide-react";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-
-// Add Link import
 import Link from "next/link";
+import CameraModal from "@/components/ui/camera-modal";
 
 const featureCards = [
   {
+    id: "schedule",
     title: "Schedule New Appointment",
     description: "Choose time, location, and donation type.",
     icon: CalendarPlus,
@@ -30,20 +34,23 @@ const featureCards = [
     href: "/schedule",
   },
   {
+    id: "donor-card",
     title: "Donor Card",
-    description: "A digital view of their donor ID card.",
+    description: "A digital view of your donor ID card.",
     icon: IdCard,
     color: "bg-blue-50 text-blue-600",
     href: "#",
   },
   {
+    id: "journey",
     title: "Blood Journey",
-    description: "A tracker to see where their donation is going.",
+    description: "A tracker to see where your donation is going.",
     icon: Truck,
     color: "bg-green-50 text-green-600",
     href: "#",
   },
   {
+    id: "history",
     title: "Donation History",
     description: "A list of past donations and health records.",
     icon: History,
@@ -51,6 +58,7 @@ const featureCards = [
     href: "#",
   },
   {
+    id: "manage",
     title: "Manage Appointments",
     description: "Options to reschedule or cancel.",
     icon: CalendarRange,
@@ -58,6 +66,7 @@ const featureCards = [
     href: "#",
   },
   {
+    id: "notes",
     title: "Notes",
     description: "A place to add info about medications or donations.",
     icon: FileText,
@@ -65,6 +74,7 @@ const featureCards = [
     href: "#",
   },
   {
+    id: "about",
     title: "About Donating",
     description: "Information on eligibility and process.",
     icon: Info,
@@ -72,13 +82,15 @@ const featureCards = [
     href: "#",
   },
   {
+    id: "camera",
     title: "Capture the Moment",
-    description: "A feature to upload or share a selfie.",
+    description: "Take or upload a photo with LifeLink hero badges.",
     icon: Camera,
     color: "bg-pink-50 text-pink-600",
-    href: "#",
+    isAction: true,
   },
   {
+    id: "contact",
     title: "Contact Us",
     description: "Support contact details.",
     icon: Phone,
@@ -86,6 +98,7 @@ const featureCards = [
     href: "#",
   },
   {
+    id: "settings",
     title: "Settings",
     description: "App preferences.",
     icon: Settings,
@@ -95,8 +108,15 @@ const featureCards = [
 ];
 
 export default function DashboardPage() {
+  const [isCameraModalOpen, setIsCameraModalOpen] = useState(false);
+  const [dashboardMoments, setDashboardMoments] = useState<string[]>([]);
+
+  const handleSavePhoto = (photoUrl: string) => {
+    setDashboardMoments((prev) => [photoUrl, ...prev]);
+  };
+
   return (
-    <div className="flex flex-col flex-1 bg-muted/30">
+    <div className="flex flex-col flex-1 bg-muted/30 min-h-screen">
       {/* Dashboard Top Bar */}
       <header className="flex h-16 shrink-0 items-center justify-between px-6 border-b bg-white sticky top-0 z-10">
         <div className="flex items-center gap-4">
@@ -124,15 +144,41 @@ export default function DashboardPage() {
 
       {/* Main Content Area */}
       <main className="p-6 md:p-8 max-w-7xl mx-auto w-full">
-        <div className="mb-8">
-          <h2 className="text-3xl font-extrabold text-foreground mb-2">Welcome back, Donor!</h2>
-          <p className="text-muted-foreground">Ready to make a difference today? Your contributions save lives.</p>
+        <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h2 className="text-3xl font-extrabold text-foreground mb-2">Welcome back, Donor!</h2>
+            <p className="text-muted-foreground">Ready to make a difference today? Your contributions save lives.</p>
+          </div>
+          <Button
+            onClick={() => setIsCameraModalOpen(true)}
+            className="bg-red-600 hover:bg-red-700 text-white font-bold rounded-xl shadow-lg shadow-red-600/20 flex items-center gap-2"
+          >
+            <Camera className="w-4 h-4" />
+            Capture Donation Moment
+          </Button>
         </div>
+
+        {/* Saved Dashboard Moments Gallery (If available) */}
+        {dashboardMoments.length > 0 && (
+          <div className="mb-8 p-6 bg-white rounded-3xl border border-red-100 shadow-sm">
+            <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
+              <Heart className="w-5 h-5 text-red-600 fill-current" />
+              Your Session Photos
+            </h3>
+            <div className="flex items-center gap-4 overflow-x-auto pb-2">
+              {dashboardMoments.map((photo, i) => (
+                <div key={i} className="relative w-36 h-36 rounded-2xl overflow-hidden shrink-0 border border-slate-200 shadow-md">
+                  <img src={photo} alt={`Moment ${i}`} className="w-full h-full object-cover" />
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
 
         {/* Features Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 md:gap-6">
-          {featureCards.map((card) => (
-            <Link key={card.title} href={card.href} className="block h-full">
+          {featureCards.map((card) => {
+            const cardContent = (
               <Card className="group cursor-pointer hover:shadow-lg transition-all duration-300 border-none bg-white h-full">
                 <CardHeader className="flex flex-row items-center gap-4 space-y-0">
                   <div className={`p-3 rounded-2xl transition-transform group-hover:scale-110 duration-300 ${card.color}`}>
@@ -148,8 +194,22 @@ export default function DashboardPage() {
                   </CardDescription>
                 </CardContent>
               </Card>
-            </Link>
-          ))}
+            );
+
+            if (card.isAction) {
+              return (
+                <div key={card.id} onClick={() => setIsCameraModalOpen(true)} className="block h-full">
+                  {cardContent}
+                </div>
+              );
+            }
+
+            return (
+              <Link key={card.id} href={card.href || "#"} className="block h-full">
+                {cardContent}
+              </Link>
+            );
+          })}
         </div>
 
         {/* Stats / Quick Info Section */}
@@ -180,6 +240,13 @@ export default function DashboardPage() {
           </Card>
         </div>
       </main>
+
+      {/* Camera Modal */}
+      <CameraModal
+        isOpen={isCameraModalOpen}
+        onClose={() => setIsCameraModalOpen(false)}
+        onSavePhoto={handleSavePhoto}
+      />
     </div>
   );
 }

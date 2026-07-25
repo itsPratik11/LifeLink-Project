@@ -10,6 +10,17 @@
 !.yarn/releases
 !.yarn/versions
 
+# environment & secrets
+.env
+.env*.local
+.env.local
+
+# databases
+*.db
+*.db-journal
+*.sqlite
+local.db
+
 # testing
 /coverage
 

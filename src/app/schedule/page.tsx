@@ -1,12 +1,12 @@
 "use client";
 
-import React, { useState } from 'react';
-import { MapPin, Calendar, Search, Clock, Users, ChevronRight, Droplet } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { MapPin, Calendar, Search, Clock, Users, Droplet, ArrowLeft, Heart, LayoutDashboard } from 'lucide-react';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
-
 import { Skeleton } from '@/components/ui/skeleton';
-import { useEffect } from 'react';
+import BookAppointmentModal from '@/components/ui/book-appointment-modal';
 
 export type CampDataType = {
     id: string | number;
@@ -20,62 +20,123 @@ export type CampDataType = {
     slotsBooked: number;
 };
 
-
 export default function SchedulePage() {
     const [searchTerm, setSearchTerm] = useState("");
     const [searchDate, setSearchDate] = useState("");
+    const [allCamps, setAllCamps] = useState<CampDataType[]>([]);
     const [camps, setCamps] = useState<CampDataType[]>([]);
     const [loading, setLoading] = useState(false);
     const [isSearched, setIsSearched] = useState(false);
+    const [selectedCampForBooking, setSelectedCampForBooking] = useState<CampDataType | null>(null);
 
-    // Fetch live data only when the user clicks Search
-    const handleSearch = async () => {
-        if (!searchTerm && !searchDate) {
-            // Provide feedback or just return; we'll require at least one filter
-            return;
+    const fetchCamps = async (activateSearch = false) => {
+        if (activateSearch) {
+            setLoading(true);
+            setIsSearched(true);
         }
-
-        setIsSearched(true);
-        setLoading(true);
         try {
             const res = await fetch('/api/camps?stateCode=-1&districtCode=-1');
             const data = await res.json();
-            
-            // Client side filter matching the user inputs
-            const filtered = data.filter((camp: CampDataType) => {
-                if (!camp) return false;
-                
-                let matchesTerm = true;
-                if (searchTerm) {
-                    matchesTerm =
-                        (camp.name || "").toLowerCase().includes(searchTerm.toLowerCase()) ||
-                        (camp.location || "").toLowerCase().includes(searchTerm.toLowerCase());
-                }
-
-                let matchesDate = true;
-                if (searchDate) {
-                    const searchTime = new Date(searchDate).getTime();
-                    const campTime = new Date(camp.date).getTime();
-                    if (!isNaN(searchTime) && !isNaN(campTime)) {
-                         matchesDate = campTime >= searchTime;
-                    }
-                }
-
-                return matchesTerm && matchesDate;
-            });
-            
-            setCamps(filtered);
+            if (Array.isArray(data)) {
+                setAllCamps(data);
+            }
         } catch (err) {
             console.error("Failed to fetch live eRaktKosh data.", err);
         } finally {
-            setLoading(false);
+            if (activateSearch) {
+                setLoading(false);
+            }
         }
     };
 
+    // Fetch dataset silently in background when page mounts without displaying all camps initially
+    useEffect(() => {
+        fetchCamps(false);
+    }, []);
 
+    // Filter camps automatically whenever allCamps, searchTerm, searchDate, or isSearched changes
+    useEffect(() => {
+        if (!isSearched) {
+            setCamps([]);
+            return;
+        }
+
+        const filtered = allCamps.filter((camp: CampDataType) => {
+            if (!camp) return false;
+            
+            let matchesTerm = true;
+            if (searchTerm.trim()) {
+                const term = searchTerm.trim().toLowerCase();
+                matchesTerm =
+                    (camp.name || "").toLowerCase().includes(term) ||
+                    (camp.location || "").toLowerCase().includes(term) ||
+                    (camp.organizer || "").toLowerCase().includes(term);
+            }
+
+            let matchesDate = true;
+            if (searchDate) {
+                const searchTime = new Date(searchDate).getTime();
+                const campTime = new Date(camp.date).getTime();
+                if (!isNaN(searchTime) && !isNaN(campTime)) {
+                     matchesDate = campTime >= searchTime;
+                }
+            }
+
+            return matchesTerm && matchesDate;
+        });
+        
+        setCamps(filtered);
+    }, [allCamps, searchTerm, searchDate, isSearched]);
+
+    // Re-fetch live data and activate display when the user clicks Search
+    const handleSearch = () => {
+        if (!searchTerm.trim() && !searchDate) {
+            alert("Please enter a location or select a date to view camps.");
+            return;
+        }
+        setIsSearched(true);
+        fetchCamps(true);
+    };
+
+    const handleBookingSuccess = (campId: string | number) => {
+        setAllCamps((prev) =>
+            prev.map((c) => (c.id === campId ? { ...c, slotsBooked: c.slotsBooked + 1 } : c))
+        );
+        setCamps((prev) =>
+            prev.map((c) => (c.id === campId ? { ...c, slotsBooked: c.slotsBooked + 1 } : c))
+        );
+    };
 
     return (
         <div className="flex flex-col min-h-screen bg-gray-50">
+
+            {/* TOP NAVIGATION HEADER */}
+            <header className="sticky top-0 z-40 bg-white/90 backdrop-blur-md border-b border-gray-200 px-4 md:px-8 py-3">
+                <div className="max-w-7xl mx-auto flex items-center justify-between">
+                    <Link 
+                        href="/" 
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-bold text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all border border-gray-200 hover:border-red-200"
+                    >
+                        <ArrowLeft className="w-4 h-4 text-red-600" />
+                        Back to Home
+                    </Link>
+
+                    <Link href="/" className="flex items-center gap-2 text-xl font-black text-gray-900">
+                        <div className="p-1.5 rounded-lg bg-red-600 text-white">
+                            <Heart className="w-5 h-5 fill-current" />
+                        </div>
+                        Life<span className="text-red-600">Link</span>
+                    </Link>
+
+                    <Link 
+                        href="/dashboard" 
+                        className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-bold text-gray-700 hover:text-red-600 hover:bg-red-50 transition-all border border-gray-200 hover:border-red-200"
+                    >
+                        <LayoutDashboard className="w-4 h-4 text-red-600" />
+                        Dashboard
+                    </Link>
+                </div>
+            </header>
 
             {/* 1. HERO SEARCH SECTION */}
             <section className="bg-[#b91c1c] py-12 px-4 shadow-md">
@@ -231,7 +292,10 @@ export default function SchedulePage() {
                                             </div>
                                         </div>
 
-                                        <Button className="w-full bg-[#ed1b2e] hover:bg-[#d9192a] text-white font-bold h-11 shadow-sm group-hover:shadow-md transition-all">
+                                        <Button
+                                            onClick={() => setSelectedCampForBooking(camp)}
+                                            className="w-full bg-[#ed1b2e] hover:bg-[#d9192a] text-white font-bold h-11 shadow-sm group-hover:shadow-md transition-all active:scale-[0.98]"
+                                        >
                                             Book Appointment
                                         </Button>
                                     </div>
@@ -264,6 +328,14 @@ export default function SchedulePage() {
                     </div>
                 )}
             </section>
+
+            {/* Book Appointment Modal */}
+            <BookAppointmentModal
+                isOpen={!!selectedCampForBooking}
+                onClose={() => setSelectedCampForBooking(null)}
+                camp={selectedCampForBooking}
+                onBookingSuccess={handleBookingSuccess}
+            />
         </div>
     );
 }

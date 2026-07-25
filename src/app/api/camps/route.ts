@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 
-import { FALLBACK_CAMPS_DATA } from './fallbackData';
+import { FALLBACK_CAMPS_DATA, getDynamicFallbackCamps } from './fallbackData';
 
 export async function GET(request: Request) {
     try {
@@ -40,7 +40,7 @@ export async function GET(request: Request) {
             jsonData = JSON.parse(resultText);
         } catch(e) {
             console.error("Failed to parse JSON from eRaktKosh, falling back.");
-            return NextResponse.json(FALLBACK_CAMPS_DATA);
+            return NextResponse.json(getDynamicFallbackCamps());
         }
 
         if (jsonData && jsonData.data && Array.isArray(jsonData.data) && jsonData.data.length > 0) {
@@ -88,11 +88,11 @@ export async function GET(request: Request) {
 
         // Return fallback data if the array was empty or structure unknown
         console.log("eRaktKosh API was unreachable or returned empty array, serving realistic Indian fallback data");
-        return NextResponse.json(FALLBACK_CAMPS_DATA);
+        return NextResponse.json(getDynamicFallbackCamps());
 
     } catch (error) {
         console.error("eRaktKosh Scraper Route Error: ", error);
         // Important: Return fallback data on error to keep the app resilient
-        return NextResponse.json(FALLBACK_CAMPS_DATA);
+        return NextResponse.json(getDynamicFallbackCamps());
     }
 }
