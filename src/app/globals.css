@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/* Font loaded via next/font in layout.tsx for optimal performance */
 @import "tailwindcss";
 @import "tw-animate-css";
 
@@ -202,4 +202,18 @@
   * {
     border-color: var(--border);
   }
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  animation: marquee 35s linear infinite;
 }

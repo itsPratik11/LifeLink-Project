@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { MapPin, Calendar, Search, Clock, Users, Droplet, ArrowLeft, Heart, LayoutDashboard } from 'lucide-react';
+import { useSearchParams } from 'next/navigation';
+import { MapPin, Calendar, Search, Clock, Users, Droplet, ArrowLeft, Heart, LayoutDashboard, AlertCircle, ShieldAlert } from 'lucide-react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Progress } from '@/components/ui/progress';
@@ -21,6 +22,10 @@ export type CampDataType = {
 };
 
 export default function SchedulePage() {
+    const searchParams = useSearchParams();
+    const emergencyBloodGroup = searchParams.get('bloodGroup');
+    const emergencyHospital = searchParams.get('hospital');
+
     const [searchTerm, setSearchTerm] = useState("");
     const [searchDate, setSearchDate] = useState("");
     const [allCamps, setAllCamps] = useState<CampDataType[]>([]);
@@ -28,6 +33,14 @@ export default function SchedulePage() {
     const [loading, setLoading] = useState(false);
     const [isSearched, setIsSearched] = useState(false);
     const [selectedCampForBooking, setSelectedCampForBooking] = useState<CampDataType | null>(null);
+
+    // Auto-populate and trigger search if emergency params are passed
+    useEffect(() => {
+        if (emergencyHospital || emergencyBloodGroup) {
+            setSearchTerm("Delhi");
+            setIsSearched(true);
+        }
+    }, [emergencyHospital, emergencyBloodGroup]);
 
     const fetchCamps = async (activateSearch = false) => {
         if (activateSearch) {
@@ -137,6 +150,23 @@ export default function SchedulePage() {
                     </Link>
                 </div>
             </header>
+
+            {/* EMERGENCY SOS INCOMING BANNER IF COMING FROM SHORTAGE TICKER */}
+            {emergencyBloodGroup && (
+                <div className="bg-red-950 text-white border-b border-red-800 px-4 py-3">
+                    <div className="max-w-7xl mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                        <div className="flex items-center gap-2.5">
+                            <ShieldAlert className="w-5 h-5 text-red-400 animate-pulse flex-shrink-0" />
+                            <span className="text-xs sm:text-sm font-semibold">
+                                <span className="bg-red-600 px-2 py-0.5 rounded text-xs font-black uppercase tracking-wider mr-2">
+                                    CRITICAL SOS
+                                </span>
+                                Responding to shortage for <strong className="text-red-300 font-black">{emergencyBloodGroup}</strong> {emergencyHospital ? `at ${emergencyHospital}` : ""}. Select an available slot below to confirm priority fast-track dispatch.
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            )}
 
             {/* 1. HERO SEARCH SECTION */}
             <section className="bg-[#b91c1c] py-12 px-4 shadow-md">

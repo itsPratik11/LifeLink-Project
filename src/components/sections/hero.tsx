@@ -63,9 +63,14 @@ const HeroSection = () => {
 
             <div className="flex items-center gap-6 pt-4">
               <div className="flex -space-x-3">
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-white dark:border-slate-950 bg-slate-200 overflow-hidden">
-                    <img src={`https://i.pravatar.cc/100?img=${i + 10}`} alt="User" />
+                {[
+                  { bg: "bg-red-400", initials: "A" },
+                  { bg: "bg-blue-400", initials: "S" },
+                  { bg: "bg-green-400", initials: "M" },
+                  { bg: "bg-purple-400", initials: "R" },
+                ].map((avatar, i) => (
+                  <div key={i} className={`w-10 h-10 rounded-full border-2 border-white dark:border-slate-950 ${avatar.bg} flex items-center justify-center text-white text-xs font-bold`}>
+                    {avatar.initials}
                   </div>
                 ))}
               </div>

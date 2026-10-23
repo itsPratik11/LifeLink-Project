@@ -55,7 +55,7 @@ const data = {
     },
     {
       title: "Blood Journey",
-      url: "#",
+      url: "/dashboard/journey",
       icon: Truck,
     },
     {

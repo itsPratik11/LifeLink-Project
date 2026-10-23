@@ -47,7 +47,7 @@ const featureCards = [
     description: "A tracker to see where your donation is going.",
     icon: Truck,
     color: "bg-green-50 text-green-600",
-    href: "#",
+    href: "/dashboard/journey",
   },
   {
     id: "history",
@@ -116,32 +116,7 @@ export default function DashboardPage() {
   };
 
   return (
-    <div className="flex flex-col flex-1 bg-muted/30 min-h-screen">
-      {/* Dashboard Top Bar */}
-      <header className="flex h-16 shrink-0 items-center justify-between px-6 border-b bg-white sticky top-0 z-10">
-        <div className="flex items-center gap-4">
-          <SidebarTrigger />
-          <h1 className="text-xl font-bold tracking-tight">Donor Dashboard</h1>
-        </div>
-
-        <div className="flex items-center gap-4">
-          <div className="hidden md:flex relative w-64">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search features..."
-              className="pl-8 h-9 rounded-full bg-muted/50 border-none focus-visible:ring-1 focus-visible:ring-primary/20"
-            />
-          </div>
-          <Button variant="ghost" size="icon" className="rounded-full">
-            <Bell className="h-5 w-5" />
-          </Button>
-          <Button variant="ghost" size="icon" className="rounded-full bg-muted/50">
-            <User className="h-5 w-5" />
-          </Button>
-        </div>
-      </header>
-
+    <div className="flex flex-col flex-1 bg-muted/30 min-h-screen w-full min-w-0 overflow-x-hidden">
       {/* Main Content Area */}
       <main className="p-6 md:p-8 max-w-7xl mx-auto w-full">
         <div className="mb-8 flex flex-col md:flex-row md:items-center justify-between gap-4">
